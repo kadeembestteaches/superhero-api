@@ -1,4 +1,4 @@
-const heroModel = require("../models/Hero.js");
+const heroModel = require("../models/HeroModel.js");
 exports.createAHero =(req,res)=>{
 
 
