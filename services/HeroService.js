@@ -120,12 +120,25 @@ exports.deleteASuperHero=(req,res)=>{
 
     
     heroModel.findByIdAndRemove(req.params.id)
-    .then(()=>{
+    .then((hero)=>{
 
+        if(hero)
+        {
+            res.json({
+                message: `The Hero with the ID ${req.params.id} was deleted`
+            })
+        }
 
-        res.json({
-            message: `The Hero with the ID ${req.params.id} was deleted`
-        })
+        else
+        {
+            res.status(404).json({
+                message : `Hero with ID ${req.params.id} was not found`
+            })
+        }
+
+      
+
+  
 
 
     })
